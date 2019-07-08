@@ -1,8 +1,8 @@
-# 🌄 React Image Placeholder
+# 🌄 React Placeholder Image
 
 Quickly mock up UI's with placeholder images.
 
-Powered by https://placeholder.com
+[Powered by https://placeholder.com]
 
 ![](https://via.placeholder.com/400x200/123456/ffffff?text=Demo)
 
@@ -10,22 +10,33 @@ Powered by https://placeholder.com
 
 Use the `PlaceholderImage` React component
 
-```js
+```jsx
 import { PlaceholderImage } from 'react-placeholder-image';
+```
 
+![Simple placholder image](https://via.placeholder.com/200x200)
+
+```jsx
 // simple, square image (width is the only required prop)
 <PlaceholderImage width={200} />
+```
 
+![Complex placeholder image](https://via.placeholder.com/200x100/123456/ffffff?text=Hello%20World!)
+
+```jsx
 // image with custom background-color, text, textColor, width, and height
-<PlaceholderImage width={200} height={100} backgroundColor="#123456" textColor="#ffffff" text="Hello World!" />
-
-// accepts all valid <img> props
-<PlaceholderImage className="my-placeholder-image" width={200} alt="Placeholder" />
+<PlaceholderImage
+  width={200}
+  height={100}
+  backgroundColor="#123456"
+  textColor="#ffffff"
+  text="Hello World!"
+/>
 ```
 
 or simply generate an image URL to use in your own image component
 
-```js
+```jsx
 import { generatePlaceholderImageURL } from 'react-placeholder-image';
 
 // width is the only required parameter
@@ -39,6 +50,3 @@ const otherPlaceholderImageURL = generatePlaceholderImageURL(200, {
   text: 'Hello World!',
 });
 ```
-
-![](https://via.placeholder.com/400x250/123456/654321?text=Kitchen sink)
-![](https://via.placeholder.com/400x250/123456/654321?text=Kitchen sink)
