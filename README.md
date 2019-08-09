@@ -14,11 +14,11 @@ Use the `PlaceholderImage` React component
 import { PlaceholderImage } from 'react-placeholder-image';
 ```
 
-![Simple placholder image](https://via.placeholder.com/200x200)
+![Simple placeholder image](https://via.placeholder.com/200x200)
 
 ```jsx
-// simple, square image (width is the only required prop)
-<PlaceholderImage width={200} />
+// simple, square image (width and height are required)
+<PlaceholderImage width={200} height={200} />
 ```
 
 ![Complex placeholder image](https://via.placeholder.com/200x100/123456/ffffff?text=Hello%20World!)
@@ -39,12 +39,11 @@ or simply generate an image URL to use in your own image component
 ```jsx
 import { generatePlaceholderImageURL } from 'react-placeholder-image';
 
-// width is the only required parameter
-const placeholderImageURL = generatePlaceholderImageURL(200);
+// simple sized image
+const placeholderImageURL = generatePlaceholderImageURL(200, 200);
 
 // pass options to customize the background-color, text, and height
-const otherPlaceholderImageURL = generatePlaceholderImageURL(200, {
-  height: 100,
+const otherPlaceholderImageURL = generatePlaceholderImageURL(200, 100, {
   backgroundColor: '#123456',
   textColor: '#ffffff',
   text: 'Hello World!',

@@ -24,17 +24,17 @@ function sanitizeHex(hex: string) {
  */
 export function generatePlaceholderImageURL(
   width: number,
+  height: number,
   options: {
-    height?: number;
     backgroundColor?: string;
     textColor?: string;
     text?: string;
   } = {}
 ) {
-  const { height, backgroundColor, textColor, text } = options;
+  const { backgroundColor, textColor, text } = options;
 
   const pathParts = [
-    `${width}x${height !== undefined ? height : width}`,
+    `${width}x${height}`,
     backgroundColor ? sanitizeHex(backgroundColor) : '',
     textColor ? sanitizeHex(textColor) : undefined,
   ].filter(part => part !== undefined);
@@ -50,7 +50,7 @@ export function generatePlaceholderImageURL(
 export const PlaceholderImage = (
   props: React.ImgHTMLAttributes<HTMLImageElement> & {
     width: number;
-    height?: number;
+    height: number;
     backgroundColor?: string;
     textColor?: string;
     text?: string;
@@ -73,8 +73,7 @@ export const PlaceholderImage = (
   }
 
   return React.createElement('img', {
-    src: generatePlaceholderImageURL(width, {
-      height,
+    src: generatePlaceholderImageURL(width, height, {
       backgroundColor,
       textColor,
       text,
